@@ -160,10 +160,16 @@ class driver extends uvm_driver #(transaction);
                   endfunction
 endclass
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+class agent extends uvm_agent;
+  'uvm_component_utils(agent);
 
-
-
+monitor m;
+  driver d;
+  uvm_sequencer #(trasanction) seq;
+  
+virtual function void 
 
 
 
