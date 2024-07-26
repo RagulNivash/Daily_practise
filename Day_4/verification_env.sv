@@ -128,7 +128,37 @@ class driver extends uvm_driver #(transaction);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
- class scoreboard 
+    class scoreboard extends uvm_scoreboard #(transaction);
+      'uvm_component_utils(scoreboard)
+      uvm_analysis_imp #(transaction, scoreboard) read;  //----------------------////////////////
+
+      function new(input string path= "scoreboard", umv_component parent=null);
+        super.new(path, parent);
+        get=new("read", this);
+      endfunction
+
+
+      trasaction t;
+      
+
+      virtual function void build_phase (uvm_phase phase);
+        super.build_phase(phase);
+        t=transaction::type_id::create("t");
+
+      endfunction
+
+      virtual function void write (input transaction tr);//----------------------////////////////
+        t=tr;
+        'uvm_info("sco", $sformat("data rcvs from monitor a: %0d,b: %0d y: %0d", t.a,t.b,t.y,UVM_NONE);
+
+                  if (t.y= t.a+ t.b)
+                    'uvm_info("sco", "test passed", UVM_NONE)
+                  else
+                    'uvm_unfo("sco", "test failed", UVM_NONE);
+
+
+                  endfunction
+endclass
 
 
 
