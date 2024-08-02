@@ -165,6 +165,10 @@ endclass
 class agent extends uvm_agent;
   'uvm_component_utils(agent);
 
+  function new (input string path= "agent", parent= null)
+    super.new(path, parent)
+  endfunction
+
 monitor m;
   driver d;
   uvm_sequencer #(trasanction) seq;
