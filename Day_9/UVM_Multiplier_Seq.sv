@@ -24,6 +24,17 @@ endinterface
 import uvm_pkg::*;
 
 class congif_dff extends uvm_objec;]
+  'uvm_object_utils(config_dff)
+uvm_active_passive_enum agent_type= UVM_ACTIVE;
+
+  function new(input string path="config_dff");
+    super.new(path);
+  endfunction
+
+  
+
+
+
 
 endclass
   
