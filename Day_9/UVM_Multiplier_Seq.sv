@@ -37,4 +37,8 @@ uvm_active_passive_enum agent_type= UVM_ACTIVE;
 
 
 endclass
+
+class seq extends uvm_sequence;
+endclass
+
   
