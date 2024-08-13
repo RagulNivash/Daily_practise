@@ -41,4 +41,8 @@ endclass
 class seq extends uvm_sequence;
 endclass
 
+class driver extends uvm_driver;
+endclass
+
+
   
